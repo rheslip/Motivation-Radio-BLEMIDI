@@ -21,11 +21,13 @@ Motivation Radio is a general purpose eurorack module based on the ESP32 with:
 
 Motivation Radio is intended mainly for interfacing eurorack to other devices (e.g. iPad) wirelessly but it can do more!
 
+## BLEMIDI Hardware assignments
+
 * Gate inputs - currently unused in this sketch
 
 * CV inputs - currently unused in this sketch
 
-* Gate outputs - configurable in the menu as Note Gates, Triggers, or CC controlled Gates (see menu description below)
+* Gate outputs - configurable in the menu as Note Gates, Triggers, or CC controlled Gates (see configuration description below)
 
 * CV outputs - configurable in the menu as Note Control Voltages or CC controlled Control Voltages (see menu description below)
 
@@ -47,11 +49,11 @@ Gate and CV out pairs are configured as logical "Units" A-D in the menus.  Physi
 
 * Gate mode - press button to toggle between:
 
-** GATE - High on MIDI NOTE ON, low on MIDI NOTE off message.   Use this mode when you want a MIDI to CV converter.
+  * GATE - High on MIDI NOTE ON, low on MIDI NOTE off message.   Use this mode when you want a MIDI to CV converter.
 	
-** TRIG on NOTE - High on specified MIDI NOTE ON, low on specified MIDI NOTE off.   Set up note in GATE NOTE/CC# menu below.   This mode is typically used for percussion triggers.
+  * TRIG on NOTE - High on specified MIDI NOTE ON, low on specified MIDI NOTE off.   Set up note in GATE NOTE/CC# menu below.   This mode is typically used for percussion triggers.
 	
-** CC to GATE - High when MIDI CC value > 63, low when MIDI CC value <=63. This allows you to control the gate from a CC message. CC message number set up in GATE NOTE/CC# menu below.
+  * CC to GATE - High when MIDI CC value > 63, low when MIDI CC value <=63. This allows you to control the gate from a CC message. CC message number set up in GATE NOTE/CC# menu below.
 	
 	
 * Gate MIDI CH - MIDI channel for this gate. For MIDI to CV conversion you will want this on the same channel as the unit's CV output.
@@ -60,9 +62,9 @@ Gate and CV out pairs are configured as logical "Units" A-D in the menus.  Physi
 
 * CV mode - press button to toggle between:
 
-** NOTE to CV - MIDI note number to control voltage out. Use this mode when you want a MIDI to CV converter.
+  * NOTE to CV - MIDI note number to control voltage out. Use this mode when you want a MIDI to CV converter.
 	
-** CC to CV - MIDI CC message to control voltage out. CC message number set up in GATE NOTE/CC# menu below.
+  * CC to CV - MIDI CC message to control voltage out. CC message number set up in GATE NOTE/CC# menu below.
 	
 * CV MIDI CH - MIDI channel for this CV. For MIDI to CV conversion you will want this on the same channel as the unit's Gate output.
 
