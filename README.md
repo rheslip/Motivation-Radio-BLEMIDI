@@ -21,7 +21,7 @@ Motivation Radio is a general purpose eurorack module based on the ESP32 with:
 
 Motivation Radio is intended mainly for interfacing eurorack to other devices (e.g. iPad) wirelessly but it can do more!
 
-## BLEMIDI Hardware assignments
+### BLEMIDI Hardware Usage
 
 * Gate inputs - currently unused in this sketch
 
@@ -45,7 +45,7 @@ Serial MIDI out - everything on Bluetooth MIDI AND serial MIDI in is forwarded t
 
 The configuration menu allows you to set the module's gate and CV outputs up as MIDI to CV converters, MIDI percussion triggers or MIDI CC controllers.  On powerup the module defaults to MIDI to CV converters on MIDI channels 1-4.
 
-Gate and CV out pairs are configured as logical "Units" A-D in the menus.  Physical unit A is the left most on the front panel, D is on right side of panel.  Each unit has a configuration submenu:
+Gate and CV outs are configured as "Units" A,B,C and D in the menus.  Physical unit A is the left most on the front panel, D is on right side of the panel.  Each unit has a configuration submenu:
 
 * Gate mode - press button to toggle between:
 
@@ -72,7 +72,7 @@ Gate and CV out pairs are configured as logical "Units" A-D in the menus.  Physi
 
 
 
-## Software Dependendencies:
+### Software Dependendencies:
 
 * Adafruit Graphics library and the SSD1306 driver https://github.com/adafruit/Adafruit-GFX-Library https://github.com/adafruit/Adafruit_SSD1306
 

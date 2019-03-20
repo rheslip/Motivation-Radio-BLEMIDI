@@ -135,7 +135,7 @@ void setup() {
   display.clearDisplay();
   display.println("   MORAD BLEMIDI");
   display.println();
-  display.println("    Feb 17/2019");
+  display.println("    Mar 19/2019");
   display.display();
   delay(5000);
 
