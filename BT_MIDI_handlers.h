@@ -52,14 +52,7 @@ class MyServerCallbacks: public BLEServerCallbacks {
 
 void MIDIaction(byte command, byte data1, byte data2, byte channel) {
       if ((command==0x90) && (data2==0)) command=0x80; // sometimes note on with velocity 0 is used as note off - if so change the command to note off
-/*   Serial.print(command,HEX);
-   Serial.print(' ');  
-   Serial.print(data1);  
-   Serial.print(' ');  
-   Serial.print(data2);
-   Serial.print(' ');  
-   Serial.println(channel);   
-  */        
+        
         switch (command) { // midi command dispatch
           case 0x90:    // note on msg
             HandleNoteOn(channel+1,data1,data2);  // we add 1 to the channel number because BTMIDI channels are 0-15 vs 1-16 for serial MIDI library
@@ -71,7 +64,17 @@ void MIDIaction(byte command, byte data1, byte data2, byte channel) {
             HandleControlChange(channel+1,data1,data2);
             break;
         }
-    MIDI.send((midi::MidiType)command,data1,data2,(midi::Channel)channel); // forward BTMIDI messages to serial midi out
+    MIDI.send((midi::MidiType)command,data1,data2,(midi::Channel)(channel+1)); // forward BTMIDI messages to serial midi out. 
+    // channel+1 because serial MIDI lib uses channels 1-16
+ /*   
+   Serial.print((midi::MidiType)command,HEX);
+   Serial.print(' ');  
+   Serial.print(data1);  
+   Serial.print(' ');  
+   Serial.print(data2);
+   Serial.print(' ');  
+   Serial.println((midi::Channel)channel);   
+ */ 
 }
 
 // Decodes the BLE characteristics and calls MIDIaction if the packet contains actionable MIDI data
