@@ -20,6 +20,8 @@ Motivation Radio is a general purpose eurorack module based on the ESP32 with:
 
 PCBs and panels for Motivation Radio are available from Pusherman: https://pushermanproductions.com/product/motivation-radio-esp32-based-eurorack-breakout-module-pcb-fr4-panel/
 
+Schematics, BOM and layout files: https://github.com/jakplugg/motivation_radio_hardware
+
 Motivation Radio is intended mainly for interfacing eurorack to other devices (e.g. iPad) wirelessly but it can do more!
 
 ### BLEMIDI Hardware Usage
