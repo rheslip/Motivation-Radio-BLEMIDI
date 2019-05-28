@@ -26,7 +26,9 @@
  dec 30/18 - added serial midi handlers. units can be controlled by either BTMIDI or serial MIDI (both is not a good idea!) 
   BTMIDI in and serial MIDI in are both forwarded to serial MIDI out. this allows units to be cascaded for more CV and GATE outputs
   added CC message handler and the beginnings of a tweekable configuration
- Feb 16/19 - code restructure, added configuration menus                                
+ Feb 16/19 - code restructure, added configuration menus   
+ March 19/19 - corrected BLEMIDI channel to serial MIDI mapping - add 1  
+ March 24/19 - force gates to be low for at least MIN_GATE_OFF_TIME. fix for apps that send rapid note off-note on sequences which result in gate times too short for modules to recognize                      
 */
 
 #include <BLEDevice.h>
@@ -135,7 +137,7 @@ void setup() {
   display.clearDisplay();
   display.println("   MORAD BLEMIDI");
   display.println();
-  display.println("    Mar 19/2019");
+  display.println("    Mar 24/2019");
   display.display();
   delay(5000);
 

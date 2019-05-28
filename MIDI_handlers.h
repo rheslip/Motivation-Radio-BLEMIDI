@@ -29,6 +29,7 @@
 #ifndef MOTIVATION_RADIO_MIDI_H_
 #define MOTIVATION_RADIO_MIDI_H_
 
+#define MIN_GATE_OFF_TIME 500 // minimum gate off time in uS. fix for apps that send very rapid note off-note on sequences
 
 // MIDI command handlers
 
@@ -69,11 +70,13 @@ void HandleNoteOff(byte channel, byte note, byte velocity) {
     if ((gateout[i].MIDIchannel==channel) && (gateout[i].type==NOTES_GATE)) {  // see if MIDI channel matches and type is note to gate on/off 
        if ((note >= LOWEST_NOTE) &&( note<= HIGHEST_NOTE)) { // don't play notes out of DAC range
          GATEout(i,0); //turn off the gate. 
+         delayMicroseconds(MIN_GATE_OFF_TIME);  // kludgy fix for apps that send rapid note off-note on sequence
        }
     }
     if ((gateout[i].MIDIchannel==channel) && (gateout[i].type==NOTE_TRIGGER)) {  // see if MIDI channel matches and type is note trigger
        if (note == gateout[i].CC_NOTE_num) { // trigger on a specific note
          GATEout(i,0); //turn off the gate
+         delayMicroseconds(MIN_GATE_OFF_TIME);
        }
     }
   }  
